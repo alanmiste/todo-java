@@ -30,4 +30,12 @@ public class TodoController {
     ){
         todoService.addTodo(todo);
     }
+
+    @PutMapping("/{id}/update")
+    public void updateStatus(
+            @PathVariable String id,
+            @RequestBody Todo todo
+    ){
+        todoService.updateStatus(id,todo);
+    }
 }

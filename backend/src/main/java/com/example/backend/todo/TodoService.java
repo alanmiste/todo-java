@@ -25,4 +25,8 @@ public class TodoService {
 //        Todo todo = new Todo(todoTxt, todoStatus);
         todoRepo.addTodo(todo);
     }
+
+    public void updateStatus(String id, Todo todo) {
+        todoRepo.updateStatus(id, todo);
+    }
 }

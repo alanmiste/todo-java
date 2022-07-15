@@ -29,4 +29,10 @@ public class TodoRepo {
         Todo finalTodo = new Todo(key,todo.description(),todo.status());
         todos.put(finalTodo.id(),finalTodo);
     }
+
+    public void updateStatus(String id, Todo todo){
+        todos.put(id, todo);
+    }
+
+
 }

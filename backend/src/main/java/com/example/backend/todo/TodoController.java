@@ -20,7 +20,7 @@ public class TodoController {
     }
 
     @GetMapping("/{id}")
-    public Todo getTodo(@PathVariable int id){
+    public Todo getTodo(@PathVariable String id){
         return todoService.getTodo(id);
     }
 

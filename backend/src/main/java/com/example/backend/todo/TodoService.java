@@ -12,8 +12,8 @@ public class TodoService {
         this.todoRepo = todoRepo;
     }
 
-    public Todo getTodo(int id) {
-        return todoRepo.getTodo(id);
+    public Todo getTodo(String key) {
+        return todoRepo.getTodo(key);
     }
 
 

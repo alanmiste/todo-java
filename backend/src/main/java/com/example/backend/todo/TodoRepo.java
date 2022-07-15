@@ -33,15 +33,18 @@ public class TodoRepo {
         todos.put(id, todo);
     }
 
-//    public void advanceStatus(String id){
-//        Todo todo = todos.get(id);
-//        if(todo.status().equals(TodoStatus.OPEN)) {
-//            Todo newTodo = new Todo(todo.id(),todo.description(),TodoStatus.IN_PROGRESS);
-//            todos.put(id,newTodo);
-//        }
-//
-//
-//    }
+    public void advanceStatus(String id){
+        Todo todo = todos.get(id);
+        if(todo.status().equals(TodoStatus.OPEN)) {
+            Todo newTodo = new Todo(todo.id(),todo.description(),TodoStatus.IN_PROGRESS);
+            todos.put(id,newTodo);
+        }else {
+            Todo newTodo = new Todo(todo.id(),todo.description(),TodoStatus.DONE);
+            todos.put(id,newTodo);
+        }
+
+
+    }
 
     public void deleteTodo(String id){
         todos.remove(id);

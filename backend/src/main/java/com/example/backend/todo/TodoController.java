@@ -31,12 +31,19 @@ public class TodoController {
         todoService.addTodo(todo);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("{id}/update")
     public void updateStatus(
             @PathVariable String id,
             @RequestBody Todo todo
     ){
         todoService.updateStatus(id,todo);
+    }
+@PutMapping("{id}")
+    public void advanceStatus(
+            @PathVariable String id,
+            @RequestBody Todo todo
+    ){
+        todoService.advanceStatus(id);
     }
 
     @DeleteMapping("/{id}")

@@ -7,7 +7,6 @@ import java.util.*;
 @Repository
 public class TodoRepo {
 
-//    private final List<Todo> todos = new ArrayList<>();
     private final Map<String,Todo> todos = new HashMap<>();
 
     public Todo getTodo(String key){
@@ -34,5 +33,18 @@ public class TodoRepo {
         todos.put(id, todo);
     }
 
+//    public void advanceStatus(String id){
+//        Todo todo = todos.get(id);
+//        if(todo.status().equals(TodoStatus.OPEN)) {
+//            Todo newTodo = new Todo(todo.id(),todo.description(),TodoStatus.IN_PROGRESS);
+//            todos.put(id,newTodo);
+//        }
+//
+//
+//    }
+
+    public void deleteTodo(String id){
+        todos.remove(id);
+    }
 
 }

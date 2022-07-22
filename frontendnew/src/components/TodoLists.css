@@ -1,0 +1,8 @@
+.todoLists{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: cadetblue 5px solid;
+    border-radius: 15px;
+    width: 90%;
+}

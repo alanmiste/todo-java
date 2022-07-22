@@ -67,4 +67,101 @@ public class TodoIntegrationTest {
                             }]
                         """));
     }
+
+//    @DirtiesContext
+//    @Test
+//    void getTodo() throws Exception {
+//        //Given
+//        mockMvc
+//
+//                //When
+//                .perform(
+//                        post("/api/todo")
+//                                .contentType(MediaType.APPLICATION_JSON)
+//                                .content("""
+//                                        {
+//                                            "description":"go to Moon",
+//                                            "status":"OPEN"
+//                                        }
+//                                        """)
+//                )
+//                //Then
+//                .andExpect(status().isOk());
+//
+//        mockMvc
+//                .perform(
+//                        post("/api/todo")
+//                                .contentType(MediaType.APPLICATION_JSON)
+//                                .content("""
+//                                        {
+//                                        "description":"go to Mars",
+//                                        "status":"OPEN"
+//                                        }
+//                                        """)
+//                )
+//                        .andExpect(status().isOk());
+//
+//
+//        mockMvc
+//
+//                .perform(
+//                        get("/api/todo/")
+//                )
+//                .andExpect(status().isOk())
+//                .andExpect(content().json("""
+//                            [{
+//                            "description":"go to Moon",
+//                            "status":"OPEN"
+//                            }]
+//                        """));
+//    }
+
+
+//    @DirtiesContext
+//    @Test
+//    void updateStatus() throws Exception {
+//        //Given
+//        mockMvc
+//
+//                //When
+//                .perform(
+//                        post("/api/todo")
+//                                .contentType(MediaType.APPLICATION_JSON)
+//                                .content("""
+//                                        {
+//                                            "description":"go to Moon",
+//                                            "status":"OPEN"
+//                                        }
+//                                        """)
+//                )
+//                //Then
+//                .andExpect(status().isOk());
+//
+//        mockMvc
+//
+//                .perform(
+//                        put("/api/todo/{id}/update", 1)
+//                )
+//                .andExpect(status().isOk())
+//                .andExpect(content().json("""
+//                            [{
+//                            "description":"go to Moon",
+//                            "status":"IN_PROGRESS"
+//                            }]
+//                        """));
+//
+//        mockMvc
+//
+//                .perform(
+//                        get("/api/todo/{id}")
+//                )
+//                .andExpect(status().isOk())
+//                .andExpect(content().json("""
+//                            [{
+//                            "description":"go to Moon",
+//                            "status":"IN_PROGRESS"
+//                            }]
+//                        """));
+//    }
+
 }

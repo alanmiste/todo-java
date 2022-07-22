@@ -19,7 +19,7 @@ export default function TodoLists() {
             })
             .then((data) => setTodos(data))
             .catch((error) => console.log(error))
-    }, [])
+    }, [todos])
 
     console.log("todos: "+todos.length)
     console.log("open: "+ openTodos.length)

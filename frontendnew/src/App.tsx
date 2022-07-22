@@ -1,17 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from "./components/Header";
+import TodoLists from "./components/TodoLists";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-      <Header/>
-      </header>
-
-    </div>
-  );
+    return (
+        <div className="App">
+            <header>
+                <Header/>
+            </header>
+            <TodoLists/>
+        </div>
+    );
 }
 
 export default App;

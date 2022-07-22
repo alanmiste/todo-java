@@ -7,16 +7,24 @@ import {Todo} from "./components/Todo";
 
 function App() {
 
-    const [todos, setTodos] = useState<Todo[]>([])
-
-    useEffect(() => {
-        axios.get("/api/todo")
-            .then((response) => {
-                return response.data
-            })
-            .then((data) => setTodos(data))
-            .catch((error) => console.log(error))
-    }, [])
+    // const [todos, setTodos] = useState<Todo[]>([])
+    // const openTodos = todos.filter((todo)=> todo.status === "OPEN")
+    // const inProgressTodos = todos.filter((todo)=> todo.status === "IN_PROGRESS")
+    // const doneTodos = todos.filter((todo)=> todo.status === "DONE")
+    //
+    // useEffect(() => {
+    //     axios.get("/api/todo")
+    //         .then((response) => {
+    //             return response.data
+    //         })
+    //         .then((data) => setTodos(data))
+    //         .catch((error) => console.log(error))
+    // }, [])
+    //
+    // console.log("todos: "+todos.length)
+    // console.log("open: "+ openTodos.length)
+    // console.log("inprogress: "+inProgressTodos.length)
+    // console.log("done: "+doneTodos.length)
 
     return (
         <div className="App">

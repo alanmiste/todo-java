@@ -41,8 +41,8 @@ public class TodoController {
 
     @PutMapping("{id}")
     public void advanceStatus(
-            @PathVariable String id,
-            @RequestBody Todo todo
+            @PathVariable String id
+//            @RequestBody Todo todo
     ) {
         todoService.advanceStatus(id);
     }

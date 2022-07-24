@@ -18,6 +18,13 @@ export default function TodoList(props: { title: string, todos: Todo[], getAllTo
             .catch(error => console.log(error))
     }
 
+    const changeStatus = (key : string) =>{
+        console.log("key: "+key)
+        axios.put(`/api/todo/${key}`)
+            .then(response => console.log(response))
+            .then(props.getAllTodos)
+            .catch(error => console.log(error))
+    }
     return(
         <div>
             <div>
@@ -28,6 +35,7 @@ export default function TodoList(props: { title: string, todos: Todo[], getAllTo
                     <li className={"oneLi"} key={todo.id}>
                         {todo.description}
                         <button onClick={()=>delTodo(todo.id)}>Delete</button>
+                        <button onClick={()=>changeStatus(todo.id)}>Advance</button>
                     </li>)}
             </ul>
         </div>

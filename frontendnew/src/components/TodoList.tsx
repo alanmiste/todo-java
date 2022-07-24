@@ -4,10 +4,17 @@ import axios from "axios";
 
 export default function TodoList(props: { title: string, todos: Todo[], getAllTodos : ()=>void }){
 
+    /*props:
+   *  todos: it's a list of all Tasks, came from App.tsx.
+   *  getAllTodos: it's a function that call the backend via axios to fetch the "all tasks",
+   *       came from App.tsx and had been used in delTodo function to reload all Tasks
+   *       after deleting one of them.
+   * */
+
     const delTodo= (key : string) =>{
         axios.delete(`/api/todo/${key}`)
             .then(response=> console.log(response))
-            .then(props.getAllTodos)
+            .then(props.getAllTodos) //to reload all Tasks again.
             .catch(error => console.log(error))
     }
 

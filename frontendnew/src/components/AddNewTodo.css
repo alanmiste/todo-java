@@ -1,0 +1,26 @@
+.addNewTodo{
+    border: cadetblue 2px solid;
+    padding: 5px;
+}
+
+.addNewTodo input{
+    width: 20em;
+    border: cadetblue 3px dashed;
+
+}
+
+.addNewTodo button{
+    background-color: transparent;
+    border: cadetblue 2px solid;
+    border-radius: 10px;
+    width: 10em;
+    margin-left: 5px;
+    font-size: 1em;
+}
+
+.addNewTodo button:hover{
+    cursor: pointer;
+    background-color: forestgreen;
+    transition: ease 0.75s;
+    color: whitesmoke;
+}

@@ -1,5 +1,6 @@
 import {useState} from "react";
 import axios from "axios";
+import "./AddNewTodo.css"
 
 export default function AddNewTodo(props: {getAllTodos : ()=>void}){
 
@@ -24,7 +25,7 @@ export default function AddNewTodo(props: {getAllTodos : ()=>void}){
 
     }
     return(
-        <div>
+        <div className={"addNewTodo"}>
             <input id={"inputTodo"} type="text" value={todoDescription} onChange={event => setTodoDescription(event.target.value)}/>
             <button onClick={()=>postTodo(todoDescription)}>Add</button>
         </div>

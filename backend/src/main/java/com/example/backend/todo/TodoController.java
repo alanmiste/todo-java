@@ -15,19 +15,19 @@ public class TodoController {
     }
 
     @GetMapping()
-    public List<Todo> listTodos(){
+    public List<Todo> listTodos() {
         return todoService.listTodos();
     }
 
     @GetMapping("/{id}")
-    public Todo getTodo(@PathVariable String id){
+    public Todo getTodo(@PathVariable String id) {
         return todoService.getTodo(id);
     }
 
     @PostMapping()
     public void addTodo(
             @RequestBody Todo todo
-    ){
+    ) {
         todoService.addTodo(todo);
     }
 
@@ -35,21 +35,22 @@ public class TodoController {
     public void updateStatus(
             @PathVariable String id,
             @RequestBody Todo todo
-    ){
-        todoService.updateStatus(id,todo);
+    ) {
+        todoService.updateStatus(id, todo);
     }
-@PutMapping("{id}")
+
+    @PutMapping("{id}")
     public void advanceStatus(
             @PathVariable String id,
             @RequestBody Todo todo
-    ){
+    ) {
         todoService.advanceStatus(id);
     }
 
     @DeleteMapping("/{id}")
     public void deleteTodo(
             @PathVariable String id
-    ){
+    ) {
         todoService.deleteTodo(id);
     }
 }

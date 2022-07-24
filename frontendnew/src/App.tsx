@@ -28,7 +28,7 @@ function App() {
             <header>
                 <Header/>
             </header>
-            <TodoLists todos={todos}/>
+            <TodoLists todos={todos} getAllTodos={getAllTodos}/>
             <AddNewTodo getAllTodos={getAllTodos}/>
         </div>
     );

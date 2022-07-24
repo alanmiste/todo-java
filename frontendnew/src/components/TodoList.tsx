@@ -1,4 +1,5 @@
 import {Todo} from "./Todo";
+import "./TodoList.css"
 
 export default function TodoList(props: { title: string, todos: Todo[] }){
 
@@ -7,8 +8,8 @@ export default function TodoList(props: { title: string, todos: Todo[] }){
             <div>
             <h2>{props.title}</h2>
             </div>
-            <ul>
-                {props.todos.map(todo => <li>{todo.description}</li>)}
+            <ul className={"todoList"}>
+                {props.todos.map(todo => <li className={"oneLi"}>{todo.description}</li>)}
             </ul>
         </div>
     )

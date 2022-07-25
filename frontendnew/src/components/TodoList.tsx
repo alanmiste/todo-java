@@ -35,15 +35,19 @@ export default function TodoList(props: { title: string, todos: Todo[], getAllTo
             <ul className={"todoList"}>
                 {props.todos.map(todo =>
                     <li className={"oneLi"} key={todo.id}>
-                        {todo.description}
-                        <button onClick={()=>delTodo(todo.id)}>Delete</button>
-                        {
-                            todo.status !== "DONE" &&
-                            <button id={"advanceBtn"} onClick={
-                                ()=>
-                                    changeStatus(todo.id)
-                            }>Advance</button>
-                        }
+                        <p>
+                            {todo.description}
+                        </p>
+                        <div className={"listBtn"}>
+                            <button onClick={()=>delTodo(todo.id)}>Delete</button>
+                            {
+                                todo.status !== "DONE" &&
+                                <button id={"advanceBtn"} onClick={
+                                    ()=>
+                                        changeStatus(todo.id)
+                                }>Advance</button>
+                            }
+                        </div>
                     </li>)}
             </ul>
         </div>

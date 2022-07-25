@@ -27,10 +27,10 @@ export default function TodoList(props: { title: string, todos: Todo[], getAllTo
                 .catch(error => console.log(error))
     }
     return(
-        <div>
-            <div>
+        <div className={"listsContainer"}>
+
             <h2>{props.title}</h2>
-            </div>
+
             <ul className={"todoList"}>
                 {props.todos.map(todo =>
                     <li className={"oneLi"} key={todo.id}>

@@ -8,3 +8,12 @@
     height: 75vh;
     margin-bottom: 10px;
 }
+
+@media screen and (max-width: 800px){
+    .todoLists{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+}

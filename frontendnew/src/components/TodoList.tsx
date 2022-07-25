@@ -37,10 +37,13 @@ export default function TodoList(props: { title: string, todos: Todo[], getAllTo
                     <li className={"oneLi"} key={todo.id}>
                         {todo.description}
                         <button onClick={()=>delTodo(todo.id)}>Delete</button>
-                        <button id={"advanceBtn"} onClick={()=> todo.status !== "DONE" ?
-                            changeStatus(todo.id) :
-                            document.getElementById("advanceBtn")?.remove()
-                        }>Advance</button>
+                        {
+                            todo.status !== "DONE" &&
+                            <button id={"advanceBtn"} onClick={
+                                ()=>
+                                    changeStatus(todo.id)
+                            }>Advance</button>
+                        }
                     </li>)}
             </ul>
         </div>

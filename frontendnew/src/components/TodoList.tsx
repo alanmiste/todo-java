@@ -1,7 +1,6 @@
 import {Todo} from "./Todo";
 import "./TodoList.css"
 import axios from "axios";
-import {useState} from "react";
 
 export default function TodoList(props: { title: string, todos: Todo[], getAllTodos : ()=>void }){
 
@@ -11,7 +10,7 @@ export default function TodoList(props: { title: string, todos: Todo[], getAllTo
    *       came from App.tsx and had been used in delTodo function to reload all Tasks
    *       after deleting one of them.
    * */
-    const [todoStatus , setTodoStatus] = useState<string>("OPEN")
+    // const [todoStatus , setTodoStatus] = useState<string>("OPEN")
 
     const delTodo= (key : string) =>{
         axios.delete(`/api/todo/${key}`)
@@ -20,9 +19,9 @@ export default function TodoList(props: { title: string, todos: Todo[], getAllTo
             .catch(error => console.log(error))
     }
 
-    const changeStatus = async (key : string) =>{
+    const changeStatus =  (key : string) =>{
 
-            await axios.put(`/api/todo/${key}`)
+             axios.put(`/api/todo/${key}`)
                 .then(response => console.log(response))
                 .then(props.getAllTodos)
                 .catch(error => console.log(error))
@@ -40,6 +39,7 @@ export default function TodoList(props: { title: string, todos: Todo[], getAllTo
                         </p>
                         <div className={"listBtn"}>
                             <button onClick={()=>delTodo(todo.id)}>Delete</button>
+                            <button>Edit</button>
                             {
                                 todo.status !== "DONE" &&
                                 <button id={"advanceBtn"} onClick={

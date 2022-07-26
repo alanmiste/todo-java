@@ -21,12 +21,13 @@ a:hover{
     cursor: pointer;
     color: dodgerblue;
     transition: ease 0.5s;
-    box-shadow: rgba(73, 214, 255, 0.91) 5px 5px 15px;
+    /*box-shadow: rgba(73, 214, 255, 0.91) 5px 5px 15px;*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-color: steelblue;
 }
 
 .active{
-    background-color: dodgerblue;
+    background-color: steelblue;
     color: whitesmoke;
 }
 .inActive{

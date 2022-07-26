@@ -1,12 +1,11 @@
 import {FormEvent, useState} from "react";
-import axios from "axios";
 import "./AddNewTodo.css"
 
 export default function AddNewTodo(props: {postTodo :(description :string) => void, getAllTodos : ()=>void}){
 
     /*props:
    *  getAllTodos: it's a function that call the backend via axios to fetch the "all tasks",
-   *       came from useTodos.ts and had been used in postTodo function to reload all Tasks
+   *       came from useTodos.ts via App.tsx and had been used in postTodo function to reload all Tasks
    *       after adding new one.
    * */
 

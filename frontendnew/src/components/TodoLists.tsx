@@ -8,7 +8,7 @@ export default function TodoLists(props : {todos : Todo[], getAllTodos : ()=>voi
     /*props:
    *  todos: it's a list of all Tasks, came from App.tsx.
    *  getAllTodos: it's a function that call the backend via axios to fetch the "all tasks",
-   *       came from App.tsx and had been passed to TodoList.tsx.
+   *       came from useTodos.ts and had been passed to TodoList.tsx.
    * */
 
     const openTodos = props.todos.filter((todo)=> todo.status === "OPEN")

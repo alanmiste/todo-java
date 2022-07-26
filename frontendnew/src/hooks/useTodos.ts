@@ -44,7 +44,7 @@ export default function useTodos(){
     // const [todoDescription, setTodoDescription]= useState<string>("")
 
     const postTodo = (description : string) =>{
-        if(description !="") {
+        if(description !=="") {
             axios.post("/api/todo", {"description": description, "status": "OPEN"})
                 .then(response => console.log(response))
                 .then(getAllTodos) //to reload all Tasks again.

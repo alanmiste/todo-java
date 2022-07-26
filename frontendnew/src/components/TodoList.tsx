@@ -2,7 +2,8 @@ import {Todo} from "./Todo";
 import "./TodoList.css"
 import axios from "axios";
 
-export default function TodoList(props: { title: string, todos: Todo[], getAllTodos : ()=>void }){
+export default function TodoList(props: { title: string, todos: Todo[], getAllTodos : ()=>void,
+    delTodo : (key : string) => void, changeStatus :(key: string) => void }){
 
     /*props:
    *  todos: it's a list of all Tasks, came from App.tsx.
@@ -12,20 +13,20 @@ export default function TodoList(props: { title: string, todos: Todo[], getAllTo
    * */
     // const [todoStatus , setTodoStatus] = useState<string>("OPEN")
 
-    const delTodo= (key : string) =>{
-        axios.delete(`/api/todo/${key}`)
-            .then(response=> console.log(response))
-            .then(props.getAllTodos) //to reload all Tasks again.
-            .catch(error => console.log(error))
-    }
-
-    const changeStatus =  (key : string) =>{
-
-             axios.put(`/api/todo/${key}`)
-                .then(response => console.log(response))
-                .then(props.getAllTodos)
-                .catch(error => console.log(error))
-    }
+    // const delTodo= (key : string) =>{
+    //     axios.delete(`/api/todo/${key}`)
+    //         .then(response=> console.log(response))
+    //         .then(props.getAllTodos) //to reload all Tasks again.
+    //         .catch(error => console.log(error))
+    // }
+    //
+    // const changeStatus =  (key : string) =>{
+    //
+    //          axios.put(`/api/todo/${key}`)
+    //             .then(response => console.log(response))
+    //             .then(props.getAllTodos)
+    //             .catch(error => console.log(error))
+    // }
     return(
         <div className={"listsContainer"}>
 
@@ -38,13 +39,13 @@ export default function TodoList(props: { title: string, todos: Todo[], getAllTo
                             {todo.description}
                         </p>
                         <div className={"listBtn"}>
-                            <button onClick={()=>delTodo(todo.id)}>Delete</button>
+                            <button onClick={()=>props.delTodo(todo.id)}>Delete</button>
                             <button>Edit</button>
                             {
                                 todo.status !== "DONE" &&
                                 <button id={"advanceBtn"} onClick={
                                     ()=>
-                                        changeStatus(todo.id)
+                                        props.changeStatus(todo.id)
                                 }>Advance</button>
                             }
                         </div>

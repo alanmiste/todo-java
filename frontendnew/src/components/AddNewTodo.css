@@ -1,6 +1,7 @@
 .addNewTodo{
     border: cadetblue 2px solid;
     padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .addNewTodo input{
@@ -20,8 +21,8 @@
 
 .addNewTodo button:hover{
     cursor: pointer;
-    background-color: steelblue;
+    /*background-color: steelblue;*/
     transition: ease 0.75s;
-    color: whitesmoke;
+    color: royalblue;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

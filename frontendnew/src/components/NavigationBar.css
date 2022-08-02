@@ -1,0 +1,39 @@
+nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 60em;
+}
+
+a{
+    color: darkgreen;
+    border: cadetblue 2px solid;
+    border-radius: 15px;
+    width: 60em;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    padding: 0.5em 0 0.5em 0;
+    text-decoration: none;
+}
+
+a:hover{
+    cursor: pointer;
+    color: dodgerblue;
+    transition: ease 0.5s;
+    /*box-shadow: rgba(73, 214, 255, 0.91) 5px 5px 15px;*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-color: steelblue;
+}
+
+.active{
+    background-color: steelblue;
+    color: whitesmoke;
+}
+.inActive{
+    background-color: transparent;
+}
+
+a.active:hover{
+    color: whitesmoke;
+}

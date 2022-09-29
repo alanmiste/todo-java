@@ -21,9 +21,9 @@ public class TodoService {
         return todoRepo.listTodos();
     }
 
-    public void addTodo(Todo todo) {
+    public Todo addTodo(Todo todo) {
 //        Todo todo = new Todo(todoTxt, todoStatus);
-        todoRepo.addTodo(todo);
+        return todoRepo.addTodo(todo);
     }
 
     public void updateStatus(String id, Todo todo) {

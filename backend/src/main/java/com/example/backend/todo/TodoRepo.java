@@ -23,10 +23,11 @@ public class TodoRepo {
         return list;
     }
 
-    public void addTodo(Todo todo){
+    public Todo addTodo(Todo todo){
         String key = UUID.randomUUID().toString(); //Generate a random id for Todo object and Todo List
         Todo finalTodo = new Todo(key,todo.description(),todo.status());
         todos.put(finalTodo.id(),finalTodo);
+        return finalTodo;
     }
 
     public void updateStatus(String id, Todo todo){

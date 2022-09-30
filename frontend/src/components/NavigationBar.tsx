@@ -13,5 +13,3 @@ export default function NavigationBar() {
         </nav>
     )
 }
-
-// className={({isActive}) => isActive ? "active" : "inActive"}

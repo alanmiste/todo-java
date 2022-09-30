@@ -23,6 +23,7 @@ public class TodoIntegrationTest {
     @Autowired
     ObjectMapper objectMapper;
 
+    @DirtiesContext
     @Test
     void listTodo() throws Exception {
         //Given
@@ -117,12 +118,42 @@ public class TodoIntegrationTest {
                             "description":"go to Moon",
                             "status":"OPEN"
                             },{
-                                        "description":"go to Mars",
-                                        "status":"OPEN"
-                                        }]
+                             "description":"go to Mars",
+                             "status":"OPEN"
+                             }]
                         """));
     }
 
+    @DirtiesContext
+    @Test
+    void addTodoTest() throws Exception {
+        mockMvc
+                .perform(
+                        post("/api/todo")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content("""
+                                        {
+                                            "description":"go to Moon",
+                                            "status":"OPEN"
+                                        }
+                                        """)
+                )
+                //Then
+                .andExpect(status().is(201));
+
+        mockMvc
+
+                .perform(
+                        get("/api/todo/")
+                )
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
+                            [{
+                            "description":"go to Moon",
+                            "status":"OPEN"
+                            }]
+                        """));
+    }
 
     @DirtiesContext
     @Test
@@ -146,8 +177,6 @@ public class TodoIntegrationTest {
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
-
-//        System.out.println(savedTodo);
 
         Todo todo = objectMapper.readValue(savedTodo, Todo.class);
         String id = todo.id();

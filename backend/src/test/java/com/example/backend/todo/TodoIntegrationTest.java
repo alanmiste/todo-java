@@ -181,10 +181,7 @@ public class TodoIntegrationTest {
         Todo todo = objectMapper.readValue(savedTodo, Todo.class);
         String id = todo.id();
 
-        String uri = "/api/todo/"+id+"/update";
-        mockMvc
-
-                .perform(put(uri)
+        mockMvc.perform(put("/api/todo/"+id+"/update")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                         {
@@ -210,4 +207,93 @@ public class TodoIntegrationTest {
                         """));
     }
 
+
+    @DirtiesContext
+    @Test
+    void advanceOpenStatus() throws Exception {
+        //Given
+        String savedTodo = mockMvc
+
+                //When
+                .perform(
+                        post("/api/todo")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content("""
+                                        {
+                                            "description":"go to Moon",
+                                            "status":"OPEN"
+                                        }
+                                        """)
+                )
+                //Then
+                .andExpect(status().is(201))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        Todo todo = objectMapper.readValue(savedTodo, Todo.class);
+        String id = todo.id();
+
+        mockMvc.perform(put("/api/todo/"+id))
+                .andExpect(status().isOk());
+
+        mockMvc
+
+                .perform(
+                        get("/api/todo/"+id)
+                )
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
+                            {
+                            "description":"go to Moon",
+                            "status":"IN_PROGRESS"
+                            }
+                        """));
+    }
+
+    @DirtiesContext
+    @Test
+    void advanceInProgressStatus() throws Exception {
+        //Given
+        String savedTodo = mockMvc
+
+                //When
+                .perform(
+                        post("/api/todo")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content("""
+                                        {
+                                            "description":"go to Moon",
+                                            "status":"OPEN"
+                                        }
+                                        """)
+                )
+                //Then
+                .andExpect(status().is(201))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        Todo todo = objectMapper.readValue(savedTodo, Todo.class);
+        String id = todo.id();
+
+        mockMvc.perform(put("/api/todo/"+id))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(put("/api/todo/"+id))
+                .andExpect(status().isOk());
+
+        mockMvc
+
+                .perform(
+                        get("/api/todo/"+id)
+                )
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
+                            {
+                            "description":"go to Moon",
+                            "status":"DONE"
+                            }
+                        """));
+    }
 }

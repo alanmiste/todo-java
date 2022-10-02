@@ -296,4 +296,44 @@ public class TodoIntegrationTest {
                             }
                         """));
     }
+
+    @DirtiesContext
+    @Test
+    void deleteTodo() throws Exception {
+        //Given
+        String savedTodo = mockMvc
+
+                //When
+                .perform(
+                        post("/api/todo")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content("""
+                                        {
+                                            "description":"go to Moon",
+                                            "status":"OPEN"
+                                        }
+                                        """)
+                )
+                //Then
+                .andExpect(status().is(201))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        Todo todo = objectMapper.readValue(savedTodo, Todo.class);
+        String id = todo.id();
+
+        mockMvc.perform(delete("/api/todo/"+id))
+                .andExpect(status().isOk());
+
+        mockMvc
+
+                .perform(
+                        get("/api/todo/")
+                )
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
+                            []
+                        """));
+    }
 }

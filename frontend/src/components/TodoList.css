@@ -1,6 +1,5 @@
 .todoList {
-    border: dodgerblue 1px solid;
-    /*border-radius: 15px;*/
+    border: dodgerblue solid;
     width: 20em;
     height: 26em;
     display: flex;
@@ -8,26 +7,22 @@
     align-items: center;
     flex-direction: column;
     list-style: none;
-    padding: 10px;
+    padding: 0.5em;
     flex-wrap: nowrap;
-    /*overflow: scroll;*/
     overflow-y: scroll;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-width: 2px 0 2px 0;
 }
 
 .oneLi{
-    border: deepskyblue 1px solid;
-    /*border-radius: 5px;*/
-    /*margin-top: 5px;*/
+    border-radius: 5px;
+    background: rgba(169, 169, 169, 0.25);
     display: flex;
     flex-direction: column;
-    /*justify-content: center;*/
     align-items: flex-start;
     flex-wrap: wrap;
     width: 90%;
     padding: 0.5em;
     font-size: 1em;
-    /*font-family: "American Typewriter";*/
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
@@ -40,23 +35,19 @@
 
 .listBtn button{
     background-color: transparent;
-    border: deepskyblue 1px solid;
-    border-radius: 10px;
-    width: 6em;
-    /*font-family: "American Typewriter";*/
+    border-width: 3px 0;
+    width: 30%;
 }
 
 .listBtn button:hover{
     cursor: pointer;
-    /*background-color: steelblue;*/
-    transition: ease 0.5s;
+    border: 0;
     color: steelblue;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 5px 0 -2px steelblue;
 }
 
 
 .listsContainer{
-    /*border: dodgerblue 2px solid;*/
     width: 100%;
     height: 100%;
     display: flex;
@@ -88,7 +79,6 @@
     }
 
     .listsContainer{
-        /*border: coral 2px solid;*/
         width: 100%;
         overflow-y: scroll;
     }
@@ -117,7 +107,6 @@
     }
 
     .listsContainer{
-        /*border: coral 2px solid;*/
         width: 100%;
         overflow-y: scroll;
     }

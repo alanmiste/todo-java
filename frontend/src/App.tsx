@@ -20,10 +20,9 @@ function App() {
     return (
         <div className="App">
             <HashRouter>
-            <header>
                 <Header/>
-                <NavigationBar />
-            </header>
+
+
                 <Routes>
                     <Route path={"/"} element={<Home todos={todos} getAllTodos={getAllTodos} changeStatus={changeStatus} delTodo={delTodo} postTodo={postTodo} />} />
                     <Route path={"/open"} element={<Open todos={todos} getAllTodos={getAllTodos} changeStatus={changeStatus} delTodo={delTodo}/>} />

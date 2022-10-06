@@ -8,7 +8,7 @@
 
 .addNewTodo button{
     background-color: transparent;
-    border-width: 3px 0;
+    border-width: 0 0 3px 0;
     width: 5em;
     font-family: "Segoe Script", serif;
     margin-left: 5px;

@@ -34,7 +34,7 @@
 
 .listBtn button{
     background-color: transparent;
-    border-width: 3px 0;
+    border-width: 0 0 3px 0;
     width: 30%;
     font-family: "Segoe Script", serif;
 }
@@ -80,7 +80,7 @@ h2{
 
     .listBtn button{
         width: 25%;
-        font-size: 0.75em;
+        font-size: 50%;
     }
 
     .listsContainer{
@@ -96,23 +96,26 @@ h2{
       font-size: smaller;
         margin: 0.1em;
     }
-    .todoList{
-        width: 95%;
-    }
 
     .todoList {
         display: grid;
         grid-template-columns: 50% 50%;
         width: 95%;
+        font-size: smaller;
     }
 
     .listBtn button{
         width: 25%;
-        font-size: 0.3em;
+        font-size: 25%;
     }
 
     .listsContainer{
         width: 100%;
         overflow-y: scroll;
+    }
+
+    .oneLi{
+        width: 80%;
+        font-size: 50%;
     }
 }

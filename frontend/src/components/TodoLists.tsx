@@ -3,7 +3,7 @@ import "./TodoLists.css"
 import {Todo} from "./Todo";
 
 export default function TodoLists(props : {todos : Todo[], getAllTodos : ()=>void ,
-    deleteTodo : (key : string) => void, changeStatus :(key: string) => void }) {
+    deleteTodo : (key : string) => void, advanceStatus :(key: string) => void }) {
 
     /*props:
    *  todos: it's a list of all Tasks, came from App.tsx.
@@ -20,17 +20,17 @@ export default function TodoLists(props : {todos : Todo[], getAllTodos : ()=>voi
             <TodoList title={"OPEN"}
                       todos={openTodos}
                       getAllTodos={props.getAllTodos}
-                      changeStatus={props.changeStatus}
+                      advanceStatus={props.advanceStatus}
                       deleteTodo={props.deleteTodo}/>
             <TodoList title={"IN PROGRESS"}
                       todos={inProgressTodos}
                       getAllTodos={props.getAllTodos}
-                      changeStatus={props.changeStatus}
+                      advanceStatus={props.advanceStatus}
                       deleteTodo={props.deleteTodo}/>
             <TodoList title={"DONE"}
                       todos={doneTodos}
                       getAllTodos={props.getAllTodos}
-                      changeStatus={props.changeStatus}
+                      advanceStatus={props.advanceStatus}
                       deleteTodo={props.deleteTodo}/>
         </div>
     )

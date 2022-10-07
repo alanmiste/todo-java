@@ -31,7 +31,7 @@ export default function useTodos(){
             .catch(error => console.log(error))
     }
 
-    const changeStatus =  (key : string) =>{
+    const advanceStatus =  (key : string) =>{
 
         axios.put(`/api/todo/${key}`)
             .then(response => console.log(response))
@@ -53,6 +53,6 @@ export default function useTodos(){
     }
 
 
-    return {todos, deleteTodo , getAllTodos, postTodo, changeStatus }
+    return {todos, deleteTodo , getAllTodos, postTodo, advanceStatus }
 
 }

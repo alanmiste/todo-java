@@ -8,7 +8,7 @@ export default function Home({...props}){
         <>
             <TodoLists todos={props.todos}
                        getAllTodos={props.getAllTodos}
-                       changeStatus={props.changeStatus}
+                       advanceStatus={props.advanceStatus}
                        deleteTodo={props.deleteTodo}/>
             <AddNewTodo getAllTodos={props.getAllTodos}
                         postTodo={props.postTodo}/>

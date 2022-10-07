@@ -2,7 +2,7 @@ import {Todo} from "./Todo";
 import "./TodoList.css"
 
 export default function TodoList(props: { title: string, todos: Todo[], getAllTodos : ()=>void,
-    deleteTodo : (key : string) => void, changeStatus :(key: string) => void }){
+    deleteTodo : (key : string) => void, advanceStatus :(key: string) => void }){
 
     /*props:
    *  todos: it's a list of all Tasks, came from useTodos.ts via App.tsx.
@@ -29,7 +29,7 @@ export default function TodoList(props: { title: string, todos: Todo[], getAllTo
                                 todo.status !== "DONE" &&
                                 <button id={"advanceBtn"} onClick={
                                     ()=>
-                                        props.changeStatus(todo.id)
+                                        props.advanceStatus(todo.id)
                                 }>Advance</button>
                             }
                         </div>

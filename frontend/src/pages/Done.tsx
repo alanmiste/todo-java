@@ -8,7 +8,7 @@ export default function Done({...props}){
             <TodoList title={"DONE"}
                       todos={doneTodos}
                       getAllTodos={props.getAllTodos}
-                      changeStatus={props.changeStatus}
+                      advanceStatus={props.advanceStatus}
                       deleteTodo={props.deleteTodo}/>
         </>
     )

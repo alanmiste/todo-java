@@ -8,7 +8,7 @@ export default function InProgress({...props}){
             <TodoList title={"IN PROGRESS"}
                       todos={inProgressTodos}
                       getAllTodos={props.getAllTodos}
-                      changeStatus={props.changeStatus}
+                      advanceStatus={props.advanceStatus}
                       deleteTodo={props.deleteTodo}/>
         </>
     )

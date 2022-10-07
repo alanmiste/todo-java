@@ -8,7 +8,7 @@ export default function Open({...props}){
             <TodoList title={"OPEN"}
                       todos={openTodos}
                       getAllTodos={props.getAllTodos}
-                      changeStatus={props.changeStatus}
+                      advanceStatus={props.advanceStatus}
                       deleteTodo={props.deleteTodo}/>
         </>
     )

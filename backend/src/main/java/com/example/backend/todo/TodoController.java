@@ -1,5 +1,7 @@
 package com.example.backend.todo;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,10 +27,13 @@ public class TodoController {
     }
 
     @PostMapping()
-    public void addTodo(
+    public ResponseEntity<Todo> addTodo(
             @RequestBody Todo todo
     ) {
-        todoService.addTodo(todo);
+        Todo savedTodo = todoService.addTodo(todo);
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(savedTodo);
     }
 
     @PutMapping("{id}/update")
@@ -42,7 +47,6 @@ public class TodoController {
     @PutMapping("{id}")
     public void advanceStatus(
             @PathVariable String id
-//            @RequestBody Todo todo
     ) {
         todoService.advanceStatus(id);
     }

@@ -24,14 +24,14 @@ export default function useTodos(){
 
     //---------- TodoList.tsx ------
 
-    const delTodo= (key : string) =>{
+    const deleteTodo= (key : string) =>{
         axios.delete(`/api/todo/${key}`)
             .then(response=> console.log(response))
             .then(getAllTodos) //to reload all Tasks again.
             .catch(error => console.log(error))
     }
 
-    const changeStatus =  (key : string) =>{
+    const advanceStatus =  (key : string) =>{
 
         axios.put(`/api/todo/${key}`)
             .then(response => console.log(response))
@@ -40,16 +40,12 @@ export default function useTodos(){
     }
 
     //----------- AddNewTodo --------------
-
-    // const [todoDescription, setTodoDescription]= useState<string>("")
-
     const postTodo = (description : string) =>{
         if(description !=="") {
             axios.post("/api/todo", {"description": description, "status": "OPEN"})
                 .then(response => console.log(response))
                 .then(getAllTodos) //to reload all Tasks again.
                 .catch(error => console.log(error))
-            // setTodoDescription('') //to reset todoDescription and clear input field.
         }else {
             alert("Please enter a task!")
         }
@@ -57,6 +53,6 @@ export default function useTodos(){
     }
 
 
-    return {todos, delTodo , getAllTodos, postTodo, changeStatus }
+    return {todos, deleteTodo , getAllTodos, postTodo, advanceStatus }
 
 }

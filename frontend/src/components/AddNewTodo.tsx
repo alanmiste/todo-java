@@ -19,7 +19,10 @@ export default function AddNewTodo(props: {postTodo :(description :string) => vo
 
     return(
         <form className={"addNewTodo"} onSubmit={submitFunction}>
-            <input id={"inputTodo"} type="text" value={todoDescription} onChange={event => setTodoDescription(event.target.value)}/>
+            <input id={"inputTodo"}
+                   type="text"
+                   value={todoDescription}
+                   onChange={event => setTodoDescription(event.target.value)}/>
             <button type={"submit"}>Add</button>
         </form>
     )

@@ -10,17 +10,17 @@ import Done from "./pages/Done";
 
 function App() {
 
-    const {todos, delTodo , getAllTodos, postTodo, changeStatus } = useTodos()
+    const {todos, deleteTodo , getAllTodos, postTodo, changeStatus } = useTodos()
 
     return (
         <div className="App">
             <HashRouter>
                 <Header/>
                 <Routes>
-                    <Route path={"/"} element={<Home todos={todos} getAllTodos={getAllTodos} changeStatus={changeStatus} delTodo={delTodo} postTodo={postTodo} />} />
-                    <Route path={"/open"} element={<Open todos={todos} getAllTodos={getAllTodos} changeStatus={changeStatus} delTodo={delTodo}/>} />
-                    <Route path={"/inprogress"} element={<InProgress todos={todos} getAllTodos={getAllTodos} changeStatus={changeStatus} delTodo={delTodo}/>} />
-                    <Route path={"/done"} element={<Done todos={todos} getAllTodos={getAllTodos} changeStatus={changeStatus} delTodo={delTodo}/>} />
+                    <Route path={"/"} element={<Home todos={todos} getAllTodos={getAllTodos} changeStatus={changeStatus} deleteTodo={deleteTodo} postTodo={postTodo} />} />
+                    <Route path={"/open"} element={<Open todos={todos} getAllTodos={getAllTodos} changeStatus={changeStatus} deleteTodo={deleteTodo}/>} />
+                    <Route path={"/inprogress"} element={<InProgress todos={todos} getAllTodos={getAllTodos} changeStatus={changeStatus} deleteTodo={deleteTodo}/>} />
+                    <Route path={"/done"} element={<Done todos={todos} getAllTodos={getAllTodos} changeStatus={changeStatus} deleteTodo={deleteTodo}/>} />
                 </Routes>
             </HashRouter>
         </div>

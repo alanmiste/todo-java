@@ -3,7 +3,7 @@ import "./TodoLists.css"
 import {Todo} from "./Todo";
 
 export default function TodoLists(props : {todos : Todo[], getAllTodos : ()=>void ,
-    delTodo : (key : string) => void, changeStatus :(key: string) => void }) {
+    deleteTodo : (key : string) => void, changeStatus :(key: string) => void }) {
 
     /*props:
    *  todos: it's a list of all Tasks, came from App.tsx.
@@ -17,12 +17,21 @@ export default function TodoLists(props : {todos : Todo[], getAllTodos : ()=>voi
 
     return (
         <div className={"todoLists"}>
-            <TodoList title={"OPEN"} todos={openTodos} getAllTodos={props.getAllTodos}
-                      changeStatus={props.changeStatus} delTodo={props.delTodo}/>
-            <TodoList title={"IN PROGRESS"} todos={inProgressTodos} getAllTodos={props.getAllTodos}
-                      changeStatus={props.changeStatus} delTodo={props.delTodo}/>
-            <TodoList title={"DONE"} todos={doneTodos} getAllTodos={props.getAllTodos}
-                      changeStatus={props.changeStatus} delTodo={props.delTodo}/>
+            <TodoList title={"OPEN"}
+                      todos={openTodos}
+                      getAllTodos={props.getAllTodos}
+                      changeStatus={props.changeStatus}
+                      deleteTodo={props.deleteTodo}/>
+            <TodoList title={"IN PROGRESS"}
+                      todos={inProgressTodos}
+                      getAllTodos={props.getAllTodos}
+                      changeStatus={props.changeStatus}
+                      deleteTodo={props.deleteTodo}/>
+            <TodoList title={"DONE"}
+                      todos={doneTodos}
+                      getAllTodos={props.getAllTodos}
+                      changeStatus={props.changeStatus}
+                      deleteTodo={props.deleteTodo}/>
         </div>
     )
 }

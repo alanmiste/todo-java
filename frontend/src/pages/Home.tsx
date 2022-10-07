@@ -6,8 +6,12 @@ export default function Home({...props}){
 
     return(
         <>
-            <TodoLists todos={props.todos} getAllTodos={props.getAllTodos} changeStatus={props.changeStatus} delTodo={props.delTodo}/>
-            <AddNewTodo getAllTodos={props.getAllTodos} postTodo={props.postTodo}/>
+            <TodoLists todos={props.todos}
+                       getAllTodos={props.getAllTodos}
+                       changeStatus={props.changeStatus}
+                       deleteTodo={props.deleteTodo}/>
+            <AddNewTodo getAllTodos={props.getAllTodos}
+                        postTodo={props.postTodo}/>
         </>
     )
 }

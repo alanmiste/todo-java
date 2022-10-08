@@ -1,5 +1,7 @@
 import {Todo} from "./Todo";
-import "./TodoList.css"
+import "./TodoList.css";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 export default function TodoList(props: { title: string, todos: Todo[], getAllTodos : ()=>void,
     deleteTodo : (key : string) => void, advanceStatus :(key: string) => void }){
@@ -24,7 +26,11 @@ export default function TodoList(props: { title: string, todos: Todo[], getAllTo
                         </p>
                         <div className={"listBtn"}>
                             <button onClick={()=>props.deleteTodo(todo.id)}>Delete</button>
-                            <button>Edit</button>
+                            <Popup trigger={<button>Edit</button>}
+                                   position="top center">
+                                <div>GeeksforGeeks</div>
+                                <button>Save</button>
+                            </Popup>
                             {
                                 todo.status !== "DONE" &&
                                 <button id={"advanceBtn"} onClick={

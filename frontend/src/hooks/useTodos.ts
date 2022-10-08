@@ -2,10 +2,8 @@ import {useEffect, useState} from "react";
 import {Todo} from "../components/Todo";
 import axios from "axios";
 
-
 export default function useTodos(){
 
-    //---------- App.tsx ---------
     const [todos, setTodos] = useState<Todo[]>([])
 
     useEffect(() => {
@@ -19,10 +17,7 @@ export default function useTodos(){
             })
             .then((data) => setTodos(data))
             .catch((error) => console.log(error))
-
     }
-
-    //---------- TodoList.tsx ------
 
     const deleteTodo= (key : string) =>{
         axios.delete(`/api/todo/${key}`)
@@ -32,14 +27,12 @@ export default function useTodos(){
     }
 
     const advanceStatus =  (key : string) =>{
-
         axios.put(`/api/todo/${key}`)
             .then(response => console.log(response))
             .then(getAllTodos)
             .catch(error => console.log(error))
     }
 
-    //----------- AddNewTodo --------------
     const postTodo = (description : string) =>{
         if(description !=="") {
             axios.post("/api/todo", {"description": description, "status": "OPEN"})
@@ -49,10 +42,7 @@ export default function useTodos(){
         }else {
             alert("Please enter a task!")
         }
-
     }
 
-
     return {todos, deleteTodo , getAllTodos, postTodo, advanceStatus }
-
 }

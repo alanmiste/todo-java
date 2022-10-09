@@ -44,5 +44,12 @@ export default function useTodos(){
         }
     }
 
-    return {todos, deleteTodo , getAllTodos, postTodo, advanceStatus }
+    const updateStatus = (todo: Todo) =>{
+        axios.put(`/api/todo/${todo.id}/update`, todo)
+            .then(response => console.log(response))
+            .then(getAllTodos)
+            .catch(error => console.error(error))
+    }
+
+    return {todos, deleteTodo , getAllTodos, postTodo, advanceStatus, updateStatus}
 }

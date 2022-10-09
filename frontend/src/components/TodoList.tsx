@@ -2,7 +2,7 @@ import {Todo} from "./Todo";
 import "./TodoList.css";
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import {useState} from "react";
+import {ChangeEvent, FormEvent, useState} from "react";
 
 export default function TodoList(props: { title: string, todos: Todo[], getAllTodos : ()=>void,
     deleteTodo : (key : string) => void, advanceStatus :(key: string) => void }){
@@ -15,7 +15,16 @@ export default function TodoList(props: { title: string, todos: Todo[], getAllTo
    * */
 
     const [status,setStatus]=useState('');
-  
+
+    const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
+        setStatus(event.target.value);
+    }
+
+    const submitInput = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        console.log(status)
+    }
+
     return(
         <div className={"listsContainer"}>
 
@@ -31,16 +40,12 @@ export default function TodoList(props: { title: string, todos: Todo[], getAllTo
                             <button onClick={()=>props.deleteTodo(todo.id)}>Delete</button>
                             <Popup trigger={<button>Edit</button>}
                                    position="top center">
-                                <form>
-                                    <input type="radio" value="OPEN"
-                                           onChange={()=>setStatus("OPEN")} name="OPEN"/>
-                                    <label htmlFor="OPEN">OPEN</label>
-                                    <input type="radio" value="IN_PROGRESS"
-                                           onChange={()=>setStatus("IN_PROGRESS")} name="IN_PROGRESS"/>
-                                    <label htmlFor="IN_PROGRESS">IN PROGRESS</label>
-                                    <input type="radio" value="DONE"
-                                           onChange={()=>setStatus("DONE")} name="DONE"/>
-                                    <label htmlFor="DONE">DONE</label>
+                                <form onSubmit={submitInput}>
+                                    <select value={todo.status} onChange={handleChange}>
+                                        <option value="OPEN" >Open</option>
+                                        <option value="IN_PROGRESS" >In Progress</option>
+                                        <option value="DONE" >Done</option>
+                                    </select>
                                 </form>
                                 <button onClick={()=>console.log(status)}>Save</button>
                             </Popup>

@@ -2,10 +2,18 @@ import {Todo} from "./Todo";
 import "./TodoList.css";
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import {ChangeEvent, FormEvent, useState} from "react";
+import {ChangeEvent, useState} from "react";
+import {TodoStatus} from "./TodoStatus";
 
-export default function TodoList(props: { title: string, todos: Todo[], getAllTodos : ()=>void,
-    deleteTodo : (key : string) => void, advanceStatus :(key: string) => void }){
+type TodoListProps = {
+    title: string,
+    todos: Todo[],
+    getAllTodos : ()=>void,
+    deleteTodo : (key : string) => void,
+    advanceStatus :(key: string) => void,
+    updateStatus : (todo: Todo) => void
+}
+export default function TodoList(props: TodoListProps){
 
     /*props:
    *  todos: it's a list of all Tasks, came from useTodos.ts via App.tsx.
@@ -14,15 +22,16 @@ export default function TodoList(props: { title: string, todos: Todo[], getAllTo
    *       after deleting one of them.
    * */
 
-    const [status,setStatus]=useState('');
+    const [newStatus,setNewStatus]=useState('');
+    const [enumStatus, setEnumStatus] = useState<TodoStatus>(TodoStatus.OPEN);
 
     const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
-        setStatus(event.target.value);
-    }
-
-    const submitInput = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        console.log(status)
+        setNewStatus(event.target.value);
+        if(event.target.value === "OPEN")
+            setEnumStatus(TodoStatus.OPEN)
+        else if(event.target.value === "IN_PROGRESS")
+            setEnumStatus(TodoStatus.IN_PROGRESS)
+        else setEnumStatus(TodoStatus.DONE)
     }
 
     return(
@@ -40,14 +49,18 @@ export default function TodoList(props: { title: string, todos: Todo[], getAllTo
                             <button onClick={()=>props.deleteTodo(todo.id)}>Delete</button>
                             <Popup trigger={<button>Edit</button>}
                                    position="top center">
-                                <form onSubmit={submitInput}>
-                                    <select value={todo.status} onChange={handleChange}>
-                                        <option value="OPEN" >Open</option>
-                                        <option value="IN_PROGRESS" >In Progress</option>
-                                        <option value="DONE" >Done</option>
+
+                                    <select value={newStatus===''? todo.status : newStatus} onChange={handleChange}>
+                                        <option value="OPEN">Open</option>
+                                        <option value="IN_PROGRESS">In Progress</option>
+                                        <option value="DONE">Done</option>
                                     </select>
-                                </form>
-                                <button onClick={()=>console.log(status)}>Save</button>
+                                    <button onClick={()=>{
+                                        const t1 : Todo = {id: todo.id, description: todo.description, status: enumStatus}
+                                        props.updateStatus(t1)
+                                        setNewStatus('')
+                                    }}>Save</button>
+
                             </Popup>
                             {
                                 todo.status !== "DONE" &&

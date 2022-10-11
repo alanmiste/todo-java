@@ -22,7 +22,6 @@ public class TodoService {
     }
 
     public Todo addTodo(Todo todo) {
-//        Todo todo = new Todo(todoTxt, todoStatus);
         return todoRepo.addTodo(todo);
     }
 

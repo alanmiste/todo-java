@@ -10,7 +10,7 @@ import Done from "./pages/Done";
 
 function App() {
 
-    const {todos, deleteTodo , getAllTodos, postTodo, advanceStatus } = useTodos()
+    const {todos, deleteTodo , getAllTodos, postTodo, advanceStatus, updateStatus } = useTodos()
 
     return (
         <div className="App">
@@ -22,22 +22,26 @@ function App() {
                                           getAllTodos={getAllTodos}
                                           advanceStatus={advanceStatus}
                                           deleteTodo={deleteTodo}
-                                          postTodo={postTodo} />} />
+                                          postTodo={postTodo}
+                                          updateStatus={updateStatus}/>} />
                     <Route path={"/open"}
                            element={<Open todos={todos}
                                           getAllTodos={getAllTodos}
                                           advanceStatus={advanceStatus}
-                                          deleteTodo={deleteTodo}/>} />
+                                          deleteTodo={deleteTodo}
+                                          updateStatus={updateStatus}/>} />
                     <Route path={"/inprogress"}
                            element={<InProgress todos={todos}
                                                 getAllTodos={getAllTodos}
                                                 advanceStatus={advanceStatus}
-                                                deleteTodo={deleteTodo}/>} />
+                                                deleteTodo={deleteTodo}
+                                                updateStatus={updateStatus}/>} />
                     <Route path={"/done"}
                            element={<Done todos={todos}
                                           getAllTodos={getAllTodos}
                                           advanceStatus={advanceStatus}
-                                          deleteTodo={deleteTodo}/>} />
+                                          deleteTodo={deleteTodo}
+                                          updateStatus={updateStatus}/>} />
                 </Routes>
             </HashRouter>
         </div>

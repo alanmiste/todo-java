@@ -2,8 +2,15 @@ import TodoList from "./TodoList";
 import "./TodoLists.css"
 import {Todo} from "./Todo";
 
-export default function TodoLists(props : {todos : Todo[], getAllTodos : ()=>void ,
-    deleteTodo : (key : string) => void, advanceStatus :(key: string) => void }) {
+type TodoListsProps = {
+    todos : Todo[],
+    getAllTodos : ()=>void ,
+    deleteTodo : (key : string) => void,
+    advanceStatus :(key: string) => void,
+    updateStatus : (todo: Todo) => void,
+}
+
+export default function TodoLists(props : TodoListsProps) {
 
     /*props:
    *  todos: it's a list of all Tasks, came from App.tsx.
@@ -21,17 +28,20 @@ export default function TodoLists(props : {todos : Todo[], getAllTodos : ()=>voi
                       todos={openTodos}
                       getAllTodos={props.getAllTodos}
                       advanceStatus={props.advanceStatus}
-                      deleteTodo={props.deleteTodo}/>
+                      deleteTodo={props.deleteTodo}
+                      updateStatus={props.updateStatus}/>
             <TodoList title={"IN PROGRESS"}
                       todos={inProgressTodos}
                       getAllTodos={props.getAllTodos}
                       advanceStatus={props.advanceStatus}
-                      deleteTodo={props.deleteTodo}/>
+                      deleteTodo={props.deleteTodo}
+                      updateStatus={props.updateStatus}/>
             <TodoList title={"DONE"}
                       todos={doneTodos}
                       getAllTodos={props.getAllTodos}
                       advanceStatus={props.advanceStatus}
-                      deleteTodo={props.deleteTodo}/>
+                      deleteTodo={props.deleteTodo}
+                      updateStatus={props.updateStatus}/>
         </div>
     )
 }

@@ -21,7 +21,7 @@ public class TodoController {
         return todoService.listTodos();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public Todo getTodo(@PathVariable String id) {
         return todoService.getTodo(id);
     }
@@ -51,7 +51,7 @@ public class TodoController {
         todoService.advanceStatus(id);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     public void deleteTodo(
             @PathVariable String id
     ) {

@@ -1,19 +1,18 @@
-## Todo Kanban Board / Friday exercise
+# Todo-App
 
-Do the following steps to setup the project:
+<font size="5">**Todo-App** is a simple application, consisting of a field for entering tasks and three sections for each case, **Open**, **In progress** and **Done**. In addition to a Nav bar.
 
-Mac:
-1. Create a spring initializer backend module (name="backend", with "Spring Web" enabled)
-2. Install Node.js (https://nodejs.org/en/download/) or via brew in your terminal ( `brew install node` )
-3. run the `build-frontend-mac.sh` script
-4. start the server and open your browser on http://localhost:8080 to see the frontend
-5. Happy hacking 👩‍💻 👨‍💻
+Entered tasks are "Open" by default. The task will be listed in the "Open" menu, for each task there will be three buttons:
+- Delete: to delete the task.
+- ُEdit: to move the task between the three lists.
+- Advance : to pass the task to the next list.
 
-Win:
-1. Create a spring initializer backend module (name="backend", with "Spring Web" enabled)
-2. Install Node.js (https://nodejs.org/en/download/)
-3. run the `build-frontend-win.ps1` script
-4. If you run into Problems running the script, try running `Set-ExecutionPolicy -ExecutionPolicy Unrestricted` as admin.
-5. start the server and open your browser on http://localhost:8080 to see the frontend
-6. Happy hacking 👩‍💻 👨‍💻
+I haven't linked the app to a database, so the entries remain until the session is terminated.
+</font>
+---
+## Tech-Used
+
+<font size="5">I used the following techniques to create this application:
+`Java` `Spring` `Maven` `Typescript` `React` `HTML` `CSS` `Git/Github` `Junit` `Mocking` `RestAPI`
+</font>
 

@@ -16,3 +16,19 @@ I haven't linked the app to a database, so the entries remain until the session 
 `Java` `Spring` `Maven` `Typescript` `React` `HTML` `CSS` `Git/Github` `Junit` `Mocking` `RestAPI`
 </font>
 
+## Installation
+
+- Clone the project with this link: 
+    `git@github.com:alanmiste/todo-java.git`
+
+- Make the `backend` folder as Maven module.
+
+- Setup SDK- OpenJDK version 18.
+
+- In terminal go to `frontend` folder and run `npm install`.
+
+- Start backend application.
+
+- Start frontend application.
+
+- The App will run on http://localhost:3000 in the browser.

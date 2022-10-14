@@ -4,7 +4,7 @@
 
 Entered tasks are "Open" by default. The task will be listed in the "Open" menu, for each task there will be three buttons:
 - Delete: to delete the task.
-- Edit:to move the task between the three lists.
+- Edit: to move the task between the three lists.
 - Advance : to pass the task to the next list.
 
 I haven't linked the app to a database, so the entries remain until the session is terminated.

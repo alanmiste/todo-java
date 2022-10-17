@@ -32,3 +32,8 @@ I haven't linked the app to a database, so the entries remain until the session 
 - Start frontend application.
 
 - The App will run on http://localhost:3000 in the browser.
+
+
+## Screenshot:
+
+![](Todo-App-screenshot.jpg)

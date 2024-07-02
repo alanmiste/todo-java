@@ -1,63 +1,21 @@
-/*nav{*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    flex-wrap: nowrap;*/
-/*    justify-content: space-around;*/
-/*    width: 80%;*/
-/*}*/
-
-/*a{*/
-/*    color: darkgreen;*/
-/*    width: 10%;*/
-/*    padding: 0.5em 0 0.5em 0;*/
-/*    text-decoration: none;*/
-/*}*/
-
-/*a:hover{*/
-/*    cursor: pointer;*/
-/*    color: dodgerblue;*/
-/*    transition: ease 0.5s;*/
-/*    box-shadow: 0px 5px 0 -2px lightskyblue;*/
-/*    border-color: steelblue;*/
-/*}*/
-
-/*.active{*/
-/*    color: steelblue;*/
-/*    box-shadow: 0px 5px 0 -2px steelblue;*/
-/*}*/
-/*.inActive{*/
-/*    background-color: transparent;*/
-/*}*/
-
-/*a.active:hover{*/
-/*    color: dodgerblue;*/
-/*}*/
-
-/*@media screen and (max-width: 500px){*/
-/*    a{*/
-/*        font-size: 0.7em;*/
-/*        text-decoration: none;*/
-/*    }*/
-/*}*/
-
+/* NavigationBar.css */
 .topNav {
     overflow: hidden;
     background-color: #2d2d2d;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 }
 
-.topNav a{
-    float: left;
-    display: block;
+.topNav a {
     color: #f2f2f2;
     text-align: center;
-    padding: 0 1em;
+    padding: 1em;
     text-decoration: none;
-    /*font-size: 17px;*/
 }
 
 .topNav a:hover {
-    /*background-color: #ddd;*/
     color: deepskyblue;
 }
 
@@ -71,23 +29,27 @@
 }
 
 @media screen and (max-width: 600px) {
-    .topNav a:not(:first-child) {display: none;}
-    .topNav a.icon {
-        float: left;
-        display: block;
+    .topNav {
+        flex-direction: column;
+        align-items: center;
     }
-}
 
-@media screen and (max-width: 600px) {
-    .topNav.responsive {position: relative;}
-    .topNav.responsive .icon {
-        position: initial;
+    .topNav a {
+        display: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .topNav .icon {
+        display: flex;
+        justify-content: center;
         right: 0;
         top: 0;
+        cursor: pointer;
+        color: #f2f2f2;
     }
-    .topNav.responsive a{
-        float: none;
+
+    .topNav.responsive a {
         display: block;
-        text-align: left;
     }
 }
